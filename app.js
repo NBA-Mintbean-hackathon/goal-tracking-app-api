@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 
 const usersRoute = require("./components/users/userRoutes");
+const tasksRoute = require("./components/tasks/taskRoutes");
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/users", usersRoute);
+app.use("/api/tasks", tasksRoute);
 app.get("/", (_req, res) => {
   console.log("test successful");
   res.status(200).json({ test: "successful" });
