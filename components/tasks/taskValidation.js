@@ -9,8 +9,14 @@ const taskSchema = Joi.object({
     .required(),
 });
 
+const deleteTaskSchema = Joi.object({
+  token: Joi.string().required(),
+  id: Joi.string().required(),
+});
+
 const Validate = (schema) => (data) => schema.validate(data);
 
 module.exports = {
   taskValidation: Validate(taskSchema),
+  deleteTaskValidation: Validate(deleteTaskSchema),
 };
